@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+
+  <name>lgn_hand_ik</name>
+  <version>0.1.0</version>
+
+  <description>
+    Real-time inverse kinematics and dynamics solver for robotic hands and
+    humanoids, built on the Legnani, Righettini, Zappa and Casolo (1996)
+    unified 4x4 homogeneous matrix algebra. URDF-driven, ROS2-native,
+    CUDA-ready. Includes virtual tactile sensing via model-based contact
+    estimation. Currently targets the Pollen Robotics Amazing Hand;
+    generalises to any URDF-described rigid-body system.
+  </description>
+
+  <maintainer email="your@email.com">Your Name</maintainer>
+  <license>MIT</license>
+
+  <url type="repository">https://github.com/your-org/lgn_hand_ik</url>
+  <url type="bugtracker">https://github.com/your-org/lgn_hand_ik/issues</url>
+
+  <author email="your@email.com">Your Name</author>
+
+  <!-- ── Build tool ──────────────────────────────────────────────────────── -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- ── Core build dependencies (always required) ─────────────────────── -->
+  <depend>eigen3</depend>
+  <depend>libtinyxml2-dev</depend>
+
+  <!-- ── ROS2 node dependencies ────────────────────────────────────────── -->
+  <depend>rclcpp</depend>
+  <depend>sensor_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+
+  <!-- ── Test dependencies ─────────────────────────────────────────────── -->
+  <test_depend>ament_cmake_gtest</test_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- ── Optional: demo (OpenGL visualiser) ────────────────────────────── -->
+  <!-- Not declared as ROS deps — installed via apt separately:            -->
+  <!--   sudo apt install libglfw3-dev libglew-dev                         -->
+  <!-- ImGui is vendored — point cmake at it with -DIMGUI_DIR=...          -->
+
+  <!-- ── Optional: benchmarks ──────────────────────────────────────────── -->
+  <!-- sudo apt install libbenchmark-dev liborocos-kdl-dev                 -->
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+
+</package>

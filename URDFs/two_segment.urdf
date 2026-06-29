@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot name="two_segment">
+
+  <!-- Fixed world / root link -->
+  <link name="world"/>
+
+  <!-- Segment 1: 1.5 m, 1 kg, uniform rod -->
+  <link name="link1">
+    <inertial>
+      <origin xyz="0 0.75 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <!-- Uniform rod about CoM: Ixx = Izz = mL²/12 = 1·1.5²/12 = 0.1875 -->
+      <inertia ixx="0.1875" ixy="0" ixz="0"
+                            iyy="0.001"
+                                     iyz="0"
+                                          izz="0.1875"/>
+    </inertial>
+  </link>
+
+  <!-- Segment 2: 1.0 m, 1 kg, uniform rod -->
+  <link name="link2">
+    <inertial>
+      <origin xyz="0 0.5 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <!-- Ixx = Izz = 1·1.0²/12 = 0.0833 -->
+      <inertia ixx="0.0833" ixy="0" ixz="0"
+                            iyy="0.001"
+                                     iyz="0"
+                                          izz="0.0833"/>
+    </inertial>
+  </link>
+
+  <!-- Massless tip -->
+  <link name="tip"/>
+
+  <!-- Fixed: world → base of link1 -->
+  <joint name="world_to_link1" type="fixed">
+    <parent link="world"/>
+    <child  link="link1"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Revolute J0: top of link1 → base of link2, rotates about Z -->
+  <joint name="J0" type="revolute">
+    <parent link="link1"/>
+    <child  link="link2"/>
+    <origin xyz="0 1.5 0" rpy="0 0 0"/>
+    <axis   xyz="0 0 1"/>
+    <limit  lower="-3.14159265" upper="3.14159265"
+            velocity="10.0"     effort="50.0"/>
+  </joint>
+
+  <!-- Fixed: top of link2 → tip -->
+  <joint name="link2_to_tip" type="fixed">
+    <parent link="link2"/>
+    <child  link="tip"/>
+    <origin xyz="0 1.0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>
