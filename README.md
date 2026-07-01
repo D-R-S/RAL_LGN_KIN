@@ -2,6 +2,7 @@
 
 git clone into this repo!
 
+## benchmark 
 run chmod u+x on all .sh scripts
 
 run 
@@ -12,7 +13,7 @@ then
 
 > run_lgn_bench.sh // arm.sh
 
-# sim
+## sim
 
 navigate to sim subfolder after git clone
 
