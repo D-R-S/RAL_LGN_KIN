@@ -15,3 +15,12 @@ then
 # sim
 
 navigate to sim subfolder after git clone
+
+chmake .. -DBUILD_ROS=OFF -DBUILD_DEMO=OFF -DBUILD_TESTING=OFF -DBUILD_BENCHMARKS=ON
+make -j twin_sim
+
+run via
+
+./twin_sim
+
+see various runtime flags --n N, --damping D, --diff a b, --chaos ... 
