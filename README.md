@@ -17,7 +17,9 @@ then
 navigate to sim subfolder after git clone
 
 > chmake .. -DBUILD_ROS=OFF -DBUILD_DEMO=OFF -DBUILD_TESTING=OFF -DBUILD_BENCHMARKS=ON
+
 then 
+
 > make -j twin_sim
 
 run via
